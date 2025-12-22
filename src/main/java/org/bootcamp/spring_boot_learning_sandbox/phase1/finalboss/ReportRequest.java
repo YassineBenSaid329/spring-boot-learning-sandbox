@@ -1,6 +1,6 @@
 package org.bootcamp.spring_boot_learning_sandbox.phase1.finalboss;
 
-public class ReportOptions {
+public class ReportRequest {
     private String adminName;
     private String format; // "PDF" or "EXCEL"
     private boolean includeSensitiveData;
