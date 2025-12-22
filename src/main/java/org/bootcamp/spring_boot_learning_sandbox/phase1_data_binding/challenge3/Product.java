@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase1.challenge3;
+package org.bootcamp.spring_boot_learning_sandbox.phase1_data_binding.challenge3;
 
 public class Product {
     private String name;

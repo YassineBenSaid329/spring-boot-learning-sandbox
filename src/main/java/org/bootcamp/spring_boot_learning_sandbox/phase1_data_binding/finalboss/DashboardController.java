@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase1.finalboss;
+package org.bootcamp.spring_boot_learning_sandbox.phase1_data_binding.finalboss;
 
 import org.springframework.web.bind.annotation.*;
 

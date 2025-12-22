@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase1.challenge2;
+package org.bootcamp.spring_boot_learning_sandbox.phase1_data_binding.challenge2;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
