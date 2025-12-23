@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase2_architecture.challenge2;
+package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge2;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase2_architecture.challenge4;
+package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge4;
 
 import org.springframework.stereotype.Service;
 
