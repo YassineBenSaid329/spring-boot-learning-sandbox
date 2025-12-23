@@ -31,16 +31,17 @@ The power of `Optional` comes from its fluent methods, which let us chain operat
 
 ```mermaid
 graph TD
-    A[Service returns Optional<Item>] --> B{Is Optional empty?};
-    B -->|No (Value is present)| C["Apply .map(ItemDTO::fromEntity)"];
-    C --> D["Result: Optional<ItemDTO>"];
-    D --> E["Apply .map(ResponseEntity::ok)"];
-    E --> F["Result: Optional<ResponseEntity<ItemDTO>>"];
-    F --> G["Apply .orElse(...) --> Unwraps and returns the ResponseEntity"];
+    A[Service returns Optional<Item>] --> B{Is Optional empty?}
+    B -->|No, value present| C["Apply .map(ItemDTO::fromEntity)"]
+    C --> D["Result: Optional<ItemDTO>"]
+    D --> E["Apply .map(ResponseEntity::ok)"]
+    E --> F["Result: Optional<ResponseEntity<ItemDTO>>"]
+    F --> G["Apply .orElse(...) → Unwraps and returns the ResponseEntity"]
 
-    B -->|Yes| H["Skip all .map() calls"];
-    H --> I["Apply .orElse(ResponseEntity.notFound().build())"];
-    I --> J["Returns the 'Not Found' ResponseEntity"];
+    B -->|Yes| H["Skip all .map() calls"]
+    H --> I["Apply .orElse(ResponseEntity.notFound().build())"]
+    I --> J["Returns the 'Not Found' ResponseEntity"]
+
 ```
 
 ## 💻 The Code

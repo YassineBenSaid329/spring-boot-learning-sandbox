@@ -9,24 +9,22 @@ We evolved our code from a single "fat controller" to a clean, separated archite
 
 ```mermaid
 graph LR
-    subgraph ControllerLayer
-        A["InventoryController\n(Handles HTTP, speaks DTO)"]
+    subgraph Controller Layer (Handles HTTP, speaks DTO)
+        A[InventoryController]
     end
     
-    subgraph ServiceLayer
-        B["InventoryService\n(Handles Business Logic, speaks Entity)"]
+    subgraph Service Layer (Handles Business Logic, speaks Entity)
+        B[InventoryService]
     end
 
-    subgraph DTOLayer
-        C["ItemDTO\n(The Translator)"]
+    subgraph DTO / Mapper (The Translator)
+        C[ItemDTO]
     end
     
-    A -- Injects & Delegates to --> B
-    B -- Returns Entity --> A
-    A -- Maps Entity to --> C
-    C -- Returned as JSON --> Client((Client))
-
-
+    A -- "Injects & Delegates to" --> B
+    B -- "Returns Entity" --> A
+    A -- "Maps Entity to" --> C
+    C -- "Returned as JSON" --> Client((Client))
 ```
 
 ## 🧠 Key Concepts Learned
@@ -41,4 +39,4 @@ graph LR
 
 ---
 *This architecture is now ready to be connected to a real database in next phase.*
-
+```
