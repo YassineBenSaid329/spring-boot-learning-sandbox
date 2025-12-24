@@ -1,6 +1,9 @@
 package org.bootcamp.spring_boot_learning_sandbox.phase2_persistence.challenge1_employee_entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*; // You will need imports from here
+import org.bootcamp.spring_boot_learning_sandbox.phase2_persistence.challenge3_relationships.Company;
+
 
 @Entity
 public class Employee {
@@ -13,13 +16,18 @@ public class Employee {
     private String lastName;
     private String department;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String department) {
+    public Employee(String firstName, String lastName, String department, Company company) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.department = department;
+        this.company = company;
     }
 
     public Long getId() {
@@ -52,5 +60,13 @@ public class Employee {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+    @JsonIgnore
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }
