@@ -70,3 +70,41 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 ---
 **Key Takeaway:** `@Entity` defines the **"What"** (the data structure). `JpaRepository` provides the **"How"** (the data operations).
 
+---
+
+## Part C: Advanced Derived Queries
+The power of `JpaRepository` goes far beyond simple `findById`. We can create complex queries just by following a specific naming convention for our methods. Spring Data JPA parses the method name and translates it into a SQL `WHERE` clause.
+
+### 📝 The Concept: The "Language" of Method Names
+The pattern `findBy<FieldName><Keyword>` allows for a rich set of operations.
+
+| Keyword | SQL Equivalent | Example Method Name |
+| :--- | :--- | :--- |
+| (None) | `WHERE department = ?` | `findByDepartment(String dept)` |
+| `Containing`| `WHERE lastName LIKE ?` | `findByLastNameContaining(String str)`|
+| `GreaterThan` | `WHERE id > ?` | `findByIdGreaterThan(Long id)` |
+| `And` / `Or`| `... AND ...` / `... OR ...` | `findByDepartmentAndLastName(...)`|
+| `IgnoreCase`| `UPPER(lastName) LIKE UPPER(?)`| `findByLastNameContainingIgnoreCase(...)`|
+
+### 💻 The Code
+We can add these new method signatures directly to our `EmployeeRepository` interface. No implementation is needed!
+
+**EmployeeRepository.java**
+```java
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    
+    // Basic query from Part B
+    List<Employee> findByDepartment(String department);
+
+    // --- ADVANCED QUERIES ---
+
+    // Finds employees whose last name contains the given string
+    List<Employee> findByLastNameContaining(String infix);
+
+    // Finds employees whose ID is greater than a certain number
+    List<Employee> findByIdGreaterThan(Long startingId);
+
+    // Combines two fields with a logical AND
+    List<Employee> findByDepartmentAndLastNameContaining(String department, String infix);
+}
+
