@@ -5,10 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class InventoryController {
-    private final ServiceInventory serviceInventory;
+@RequestMapping("/phase1.5/inventory3")
+public class InventoryController3 {
+    private final ServiceInventory3 serviceInventory;
 
-    public InventoryController(ServiceInventory service)
+    public InventoryController3(ServiceInventory3 service)
     {
         this.serviceInventory = service;
     }

@@ -1,9 +1,9 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge3;
+package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge4;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class ServiceInventory {
+public class ServiceInventory4 {
     public Item getItemById(int id) {
         if(id == 101){
             return new Item(101, "mouse",2);

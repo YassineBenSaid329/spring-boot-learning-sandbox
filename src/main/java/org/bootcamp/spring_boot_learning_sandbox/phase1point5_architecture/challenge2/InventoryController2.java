@@ -1,4 +1,4 @@
-package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge1;
+package org.bootcamp.spring_boot_learning_sandbox.phase1point5_architecture.challenge2;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/phase2/inventory")
-public class InventoryController {
+@RequestMapping("/phase1.5/inventory2")
+public class InventoryController2 {
 
     @GetMapping("/{id}")
     public ResponseEntity<Item> getItem(@PathVariable int id) {

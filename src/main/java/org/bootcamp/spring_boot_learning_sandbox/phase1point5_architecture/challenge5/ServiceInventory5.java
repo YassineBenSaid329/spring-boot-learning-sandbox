@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ServiceInventory {
+public class ServiceInventory5 {
     public Optional<Item> getItemById(int id) {
         if(id == 101){
             return Optional.of(new Item(101, "mouse",2));
